@@ -32,6 +32,12 @@ module.exports = tseslint.config(
           style: "kebab-case",
         },
       ],
+      "prettier/prettier": [
+        "error",
+        {
+          endOfLine: "auto"
+        }
+      ]
     },
   },
   {
@@ -42,9 +48,15 @@ module.exports = tseslint.config(
       prettierPluginRecommended
     ],
     rules: {
-      "prettier/prettier": ["error", {
-        "parser": "angular"
-      }]
+      "prettier/prettier": [
+        "error", 
+        {
+          "parser": "angular"
+        },
+        {
+          endOfLine: true
+        }
+      ]
     },
   }
 );
