@@ -37,6 +37,12 @@ module.exports = tseslint.config(
         {
           endOfLine: "auto"
         }
+      ],
+      "@angular-eslint/component-class-suffix": [
+        'error',
+        {
+          suffixes: ['Layout', "Component"]
+        }
       ]
     },
   },
@@ -51,10 +57,8 @@ module.exports = tseslint.config(
       "prettier/prettier": [
         "error", 
         {
-          "parser": "angular"
-        },
-        {
-          endOfLine: true
+          "parser": "angular",
+          "endOfLine": "auto"
         }
       ]
     },
