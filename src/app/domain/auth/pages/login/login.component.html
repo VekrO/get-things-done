@@ -1,0 +1,22 @@
+<div class="w-screen h-screen flex items-center justify-center mx-auto bg-neutral-200 px-[5px] md:p-[0px]">
+  <form class="flex flex-col gap-3 p-5 bg-white shadow min-w-[100%] md:min-w-[300px]" [formGroup]="form" (ngSubmit)="submit()">
+    <h1 class="text-xl">Faça login</h1>
+    <div class="flex flex-col gap-1">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" class="h-[40px] p-2 outline-1 cursor-pointer sm:min-w-[100%]" formControlName="email" />
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="password">Senha</label>
+      <input type="password" id="password" class="h-[40px] p-2 outline-1 cursor-pointer sm:min-w-[100%]" formControlName="password" />
+    </div>
+    <div class="flex items-center gap-1">
+      <input type="checkbox" class="w-[20px] h-[20px]" id="remember" />
+      <label for="remember" class="select-none cursor-pointer">Manter conectado</label>
+    </div>
+    <div class="flex">
+      <button type="submit" class="flex-1 h-[40px] bg-neutral-950 hover:bg-neutral-800 disabled:bg-neutral-300 transition-all text-white cursor-pointer" [disabled]="form.invalid || loading()">
+        Entrar
+      </button>
+    </div>
+  </form>
+</div>

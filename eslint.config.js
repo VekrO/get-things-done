@@ -51,11 +51,9 @@ module.exports = tseslint.config(
       "prettier/prettier": [
         "error", 
         {
-          "parser": "angular"
+          parser: "angular",
+          endOfLine: "auto",
         },
-        {
-          endOfLine: true
-        }
       ]
     },
   }
