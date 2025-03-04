@@ -1,1 +1,38 @@
-<p>register works!</p>
+<div class="w-screen h-screen flex items-center justify-center mx-auto bg-neutral-200 px-[5px] md:p-[0px]">
+  <form class="flex flex-col gap-3 p-5 bg-white shadow min-w-[100%] md:min-w-[300px]" [formGroup]="form" (ngSubmit)="submit()">
+    <h1 class="text-xl">Crie sua conta</h1>
+    <div class="flex flex-col gap-1">
+      <label for="username">Nome</label>
+      <input type="text" id="username" class="h-[40px] p-2 outline-1 cursor-pointer sm:min-w-[100%] {{ form.controls['username'].errors ? 'outline-red-500' : '' }}" formControlName="username" />
+      @if (form.dirty && form.controls['username'].touched && form.controls['username'].errors) {
+        @if (form.controls['username'].errors['required']) {
+          <span class="text-red-500">O campo nome é obrigatório</span>
+        }
+      }
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="email">E-mail</label>
+      <input type="email" id="email" class="h-[40px] p-2 outline-1 cursor-pointer sm:min-w-[100%] {{ form.controls['email'].errors ? 'outline-red-500' : '' }}" formControlName="email" />
+      @if (form.controls['email'].touched && form.controls['email'].errors) {
+        @if (form.controls['email'].errors['email']) {
+          <span class="text-red-500">O campo email é inválido</span>
+        }
+        @if (form.controls['email'].errors['required']) {
+          <span class="text-red-500">O campo email é obrigatório</span>
+        }
+      }
+    </div>
+    <div class="flex flex-col gap-1">
+      <label for="password">Senha</label>
+      <input type="password" id="password" class="h-[40px] p-2 outline-1 cursor-pointer sm:min-w-[100%] {{ form.controls['password'].errors ? 'outline-red-500' : '' }}" formControlName="password" />
+      @if (form.controls['password'].touched && form.controls['password'].errors && form.controls['password'].errors['required']) {
+        <span class="text-red-500">O campo senha é obrigatório</span>
+      }
+    </div>
+    <div class="flex">
+      <button type="submit" class="flex-1 h-[40px] bg-neutral-950 hover:bg-neutral-800 disabled:bg-neutral-300 transition-all text-white cursor-pointer" [disabled]="form.invalid || loading()">
+        Entrar
+      </button>
+    </div>
+  </form>
+</div>

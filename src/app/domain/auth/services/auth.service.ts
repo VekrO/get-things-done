@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { jwtDecode, JwtPayload } from 'jwt-decode';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class AuthService {
   saveToken(token: string) {
     localStorage.setItem('gtd-user-token', token);
